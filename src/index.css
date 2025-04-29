@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -90,74 +89,89 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground font-sans antialiased;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold;
+    @apply font-display font-semibold tracking-tight;
   }
 }
 
-/* Add custom animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-opal focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-opal text-white hover:bg-opal-dark hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-opal-gray text-white hover:bg-opal-gray-dark hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply border-2 border-opal text-opal hover:bg-opal hover:text-white;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-opal focus:border-transparent transition-colors;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-bold mb-6 relative inline-block;
+  }
+
+  .section-title::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-1/2 h-1 bg-opal rounded;
+  }
+
+  .gradient-overlay {
+    @apply absolute inset-0 bg-gradient-to-r from-black/80 to-black/40;
+  }
+
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-out;
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-/* Custom utility classes */
-.text-gold {
-  color: #FFA500;
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
-.bg-gold {
-  background-color: #FFA500;
+/* Modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
 }
 
-.hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+::-webkit-scrollbar-thumb {
+  @apply bg-opal rounded-full;
 }
 
-.section-title {
-  @apply text-3xl md:text-4xl font-bold mb-6 relative inline-block;
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-opal-dark;
 }
 
-.section-title::after {
-  content: '';
-  @apply absolute bottom-0 left-0 w-1/2 h-1 bg-[#FFA500] rounded;
-}
-
-.gradient-overlay {
-  background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
-}
-
-/* Modern button styles */
-.btn-modern {
-  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300;
-}
-
-.btn-primary {
-  @apply bg-[#FFA500] text-white hover:bg-[#FF8C00] hover:shadow-lg;
-}
-
-.btn-outline {
-  @apply border-2 border-[#FFA500] text-[#FFA500] hover:bg-[#FFA500] hover:text-white;
-}
-
-/* Card hover effects */
-.card-hover {
-  @apply transition-all duration-300;
-}
-
-.card-hover:hover {
-  @apply shadow-xl;
+/* Selection styles */
+::selection {
+  @apply bg-opal text-white;
 }

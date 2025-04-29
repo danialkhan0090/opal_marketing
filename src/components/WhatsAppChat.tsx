@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { MessageCircle, X, Send } from 'lucide-react';
+import { MessageCircle, X, Send, Phone } from 'lucide-react';
 
 const WhatsAppChat = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,36 +25,40 @@ const WhatsAppChat = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {isOpen ? (
-        <div className="bg-white rounded-lg shadow-lg w-80 overflow-hidden">
-          <div className="bg-[#FFA500] text-white p-4 flex justify-between items-center">
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow-xl w-80 overflow-hidden animate-fade-in">
+          <div className="bg-opal text-white p-4 flex justify-between items-center">
             <div className="flex items-center gap-2">
               <MessageCircle size={20} />
-              <span>Chat via WhatsApp</span>
+              <span className="font-medium">Chat via WhatsApp</span>
             </div>
-            <button onClick={toggleChat} className="text-white">
+            <button 
+              onClick={toggleChat} 
+              className="text-white hover:text-opal-light transition-colors"
+            >
               <X size={20} />
             </button>
           </div>
-          <div className="p-4 bg-gray-50 h-64 overflow-y-auto">
-            <div className="mb-4 bg-[#E5F1F9] p-3 rounded-lg max-w-[80%]">
-              <p className="text-sm">
-                Hi its Eisha Malik If you need any assistance, Chat with me
-                Or WhatsApp 0333 1518966
+          
+          <div className="p-4 bg-opal-background dark:bg-gray-800 h-64 overflow-y-auto">
+            <div className="mb-4 bg-opal-light/10 dark:bg-opal-dark/20 p-3 rounded-lg max-w-[80%]">
+              <p className="text-sm text-opal-text dark:text-gray-200">
+                Hi, I'm Eisha Malik. If you need any assistance, feel free to chat with me or call me at 0333 1518966.
               </p>
             </div>
           </div>
-          <form onSubmit={handleSubmit} className="p-3 border-t border-gray-200">
+          
+          <form onSubmit={handleSubmit} className="p-3 border-t border-gray-200 dark:border-gray-700">
             <div className="flex items-center gap-2">
               <input
                 type="text"
                 placeholder="Enter your message..."
-                className="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#FFA500]"
+                className="input flex-1 bg-white dark:bg-gray-800 dark:text-white dark:border-gray-700"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />
               <button 
                 type="submit"
-                className="bg-[#FFA500] text-white p-2 rounded-full"
+                className="bg-opal hover:bg-opal-dark text-white p-2 rounded-full transition-colors"
               >
                 <Send size={16} />
               </button>
@@ -65,11 +68,11 @@ const WhatsAppChat = () => {
       ) : (
         <button 
           onClick={toggleChat}
-          className="bg-[#FFA500] hover:bg-[#FF8C00] text-white p-4 rounded-full shadow-lg relative flex items-center justify-center"
+          className="bg-opal hover:bg-opal-dark text-white p-4 rounded-full shadow-lg relative flex items-center justify-center transition-all duration-300 hover:scale-110"
         >
           <MessageCircle size={24} className="text-white" />
           {unreadCount > 0 && (
-            <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+            <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full animate-pulse-slow">
               {unreadCount}
             </div>
           )}

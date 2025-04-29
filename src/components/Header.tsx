@@ -1,12 +1,12 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Menu, X } from 'lucide-react';
+import { Phone, Menu, X, Sun, Moon } from 'lucide-react';
 
 const Header = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,64 +23,102 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/90 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+      scrolled ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div>
             <Link to="/" className="flex items-center">
               <div className="relative">
-                <span className="text-2xl font-bold">
-                  <span className="text-[#FFA500]">OPAL</span> <span className={scrolled || location.pathname !== '/' ? 'text-gray-800' : 'text-white'}>MARKETING</span>
+                <span className="text-2xl font-display font-bold">
+                  <span className="text-[#FFA500]">OPAL</span> <span className={scrolled || location.pathname !== '/' ? 'text-gray-900 dark:text-white' : 'text-white'}>MARKETING</span>
                 </span>
                 <div className="absolute -top-4 right-0 w-full h-4 bg-[#FFA500] rounded-t-full opacity-30"></div>
-                <p className={`text-xs tracking-wider mt-1 ${scrolled || location.pathname !== '/' ? 'text-gray-500' : 'text-white/80'}`}>MOVE ON UP</p>
+                <p className={`text-xs tracking-wider mt-1 ${scrolled || location.pathname !== '/' ? 'text-gray-600 dark:text-gray-400' : 'text-white/80'}`}>LUXURY PROPERTIES</p>
               </div>
             </Link>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-4">
+            <button 
+              onClick={toggleDarkMode}
+              className={`p-2 rounded-full transition-colors ${
+                scrolled || location.pathname !== '/' 
+                  ? 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800' 
+                  : 'text-white hover:bg-white/10'
+              }`}
+              aria-label="Toggle dark mode"
+            >
+              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
             <button 
               onClick={toggleMobileMenu}
-              className={`transition-colors p-2 ${scrolled || location.pathname !== '/' ? 'text-gray-800 hover:text-[#FFA500]' : 'text-white hover:text-[#FFA500]'}`}
+              className={`transition-colors p-2 rounded-full ${
+                scrolled || location.pathname !== '/' 
+                  ? 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800' 
+                  : 'text-white hover:bg-white/10'
+              }`}
               aria-label="Toggle mobile menu"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
 
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden md:flex items-center space-x-8">
             <NavLink to="/" active={location.pathname === '/'} scrolled={scrolled}>
               HOME
             </NavLink>
             <NavLink to="/sky-projects" active={location.pathname === '/sky-projects'} scrolled={scrolled}>
-              OPAL PROJECTS
+              PROPERTIES
             </NavLink>
             <NavLink to="/real-estate-project" active={location.pathname === '/real-estate-project'} scrolled={scrolled}>
-              REAL ESTATE PROJECT
+              DEVELOPMENTS
             </NavLink>
             <NavLink to="/about-us" active={location.pathname === '/about-us'} scrolled={scrolled}>
-              ABOUT US
+              ABOUT
             </NavLink>
             <NavLink to="/contact-us" active={location.pathname === '/contact-us'} scrolled={scrolled}>
-              CONTACT US
+              CONTACT
             </NavLink>
+            <button 
+              onClick={toggleDarkMode}
+              className={`p-2 rounded-full transition-colors ${
+                scrolled || location.pathname !== '/' 
+                  ? 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800' 
+                  : 'text-white hover:bg-white/10'
+              }`}
+              aria-label="Toggle dark mode"
+            >
+              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
           </div>
 
           <div className="hidden md:block">
             <Link 
               to="/contact-us" 
-              className="bg-[#FFA500] hover:bg-[#FF8C00] text-white px-6 py-3 rounded-md flex items-center justify-center transition-colors"
+              className="btn btn-primary flex items-center justify-center bg-[#FFA500] hover:bg-[#FF8C00] text-white"
             >
               <Phone className="mr-2" size={18} />
-              <span className="font-medium">CALL NOW</span>
+              <span className="font-medium">CONTACT US</span>
             </Link>
           </div>
         </div>
@@ -88,32 +126,32 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-100 shadow-lg animate-fade-in">
+        <div className="md:hidden bg-white dark:bg-gray-900/95 backdrop-blur-sm border-t border-gray-100 dark:border-gray-800 shadow-lg animate-fade-in">
           <div className="px-4 py-3 space-y-3">
             <MobileNavLink to="/" active={location.pathname === '/'} onClick={toggleMobileMenu}>
               HOME
             </MobileNavLink>
             <MobileNavLink to="/sky-projects" active={location.pathname === '/sky-projects'} onClick={toggleMobileMenu}>
-              OPAL PROJECTS
+              PROPERTIES
             </MobileNavLink>
             <MobileNavLink to="/real-estate-project" active={location.pathname === '/real-estate-project'} onClick={toggleMobileMenu}>
-              REAL ESTATE PROJECT
+              DEVELOPMENTS
             </MobileNavLink>
             <MobileNavLink to="/about-us" active={location.pathname === '/about-us'} onClick={toggleMobileMenu}>
-              ABOUT US
+              ABOUT
             </MobileNavLink>
             <MobileNavLink to="/contact-us" active={location.pathname === '/contact-us'} onClick={toggleMobileMenu}>
-              CONTACT US
+              CONTACT
             </MobileNavLink>
             
             <div className="pt-2">
               <Link 
                 to="/contact-us" 
-                className="bg-[#FFA500] hover:bg-[#FF8C00] text-white px-4 py-2 rounded-md flex items-center justify-center transition-colors w-full"
+                className="btn btn-primary flex items-center justify-center w-full bg-[#FFA500] hover:bg-[#FF8C00] text-white"
                 onClick={toggleMobileMenu}
               >
                 <Phone className="mr-2" size={18} />
-                <span className="font-medium">CALL NOW</span>
+                <span className="font-medium">CONTACT US</span>
               </Link>
             </div>
           </div>
@@ -140,7 +178,7 @@ const NavLink = ({
       active 
         ? 'text-[#FFA500]' 
         : scrolled || to !== '/' 
-          ? 'text-gray-800 hover:text-[#FFA500]' 
+          ? 'text-gray-900 dark:text-white hover:text-[#FFA500]' 
           : 'text-white hover:text-[#FFA500]'
     }`}
   >
@@ -153,7 +191,7 @@ const MobileNavLink = ({ to, active, onClick, children }: { to: string, active: 
     to={to}
     onClick={onClick}
     className={`block py-2 px-3 ${
-      active ? 'text-[#FFA500] bg-gray-50 rounded' : 'text-gray-800 hover:text-[#FFA500] hover:bg-gray-50 hover:rounded'
+      active ? 'text-[#FFA500] bg-[#FFA500]/10 rounded' : 'text-gray-900 dark:text-white hover:text-[#FFA500] hover:bg-[#FFA500]/10 hover:rounded'
     } transition-colors`}
   >
     {children}

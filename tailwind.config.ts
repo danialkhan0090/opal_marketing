@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-export default {
+const config = {
 	darkMode: ["class"],
 	content: [
 		"./pages/**/*.{ts,tsx}",
@@ -61,7 +61,35 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				opal: {
+					DEFAULT: '#FFA500',
+					dark: '#FF8C00',
+					light: '#FFB74D',
+					accent: '#FFD700',
+					background: '#F8F9FA',
+					text: '#1A365D',
+					gray: {
+						DEFAULT: '#6B7280',
+						light: '#9CA3AF',
+						dark: '#4B5563'
+					}
+				},
+				'estate': {
+					'primary': '#FFA500',
+					'secondary': '#1A365D',
+					'accent': '#FF8C00',
+					'light': '#F8F9FA',
+					'dark': '#1E293B',
+					'gray': '#64748B',
+					'success': '#10B981',
+					'warning': '#F59E0B',
+					'error': '#EF4444',
+				},
+			},
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				display: ['Poppins', 'system-ui', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -70,27 +98,44 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'fade-in': {
+					from: { opacity: '0', transform: 'translateY(10px)' },
+					to: { opacity: '1', transform: 'translateY(0)' }
+				},
+				'slide-in': {
+					from: { transform: 'translateX(-100%)' },
+					to: { transform: 'translateX(0)' }
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'slide-in': 'slide-in 0.5s ease-out',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite'
+			},
+			boxShadow: {
+				'estate': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+				'estate-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		require('@tailwindcss/typography'),
+		require('@tailwindcss/forms')
+	],
 } satisfies Config;
+
+export default config;

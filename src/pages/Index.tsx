@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Play } from 'lucide-react';
+import { Play, Search, MapPin, Bed, Bath } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppChat from '@/components/WhatsAppChat';
@@ -14,11 +14,63 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      {/* Hero Section - No top padding needed as header is now transparent */}
-      <section className="relative h-[80vh] bg-cover bg-center" style={{
-        backgroundImage: `url('public/lovable-uploads/554c90ae-0319-457e-b707-8c8570c88ed7.png')`
+      {/* Hero Section */}
+      <section className="relative h-[90vh] bg-cover bg-center" style={{
+        backgroundImage: `url('public/lovable-uploads/d7b32d20-d5ce-4751-a9d4-000826607440.png')`
       }}>
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30"></div>
+        
+        {/* Hero Content */}
+        <div className="absolute inset-0 flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="max-w-2xl">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                Find Your Dream <span className="text-[#FFA500]">Home</span>
+              </h1>
+              <p className="text-xl text-white/90 mb-8">
+                Discover exclusive properties in prime locations across Pakistan
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Property Search Overlay */}
+        <div className="absolute bottom-0 left-0 right-0 transform translate-y-1/2">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Search by location"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA500]"
+                  />
+                  <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                </div>
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Property type"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA500]"
+                  />
+                  <Bed className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                </div>
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Price range"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FFA500]"
+                  />
+                  <Bath className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                </div>
+                <Button className="bg-[#FFA500] hover:bg-[#FF8C00] text-white py-3 rounded-lg">
+                  <Search className="mr-2" size={20} />
+                  Search Properties
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       
       {/* Welcome Section */}
