@@ -7,7 +7,7 @@ interface ProjectCardProps {
   title: string;
   price: string;
   tags: string[];
-  link: string;
+  link: string; 
 }
 
 const ProjectCard = ({ image, title, price, tags, link }: ProjectCardProps) => {
