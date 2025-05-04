@@ -1,6 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Twitter, Linkedin, Phone, Mail, MapPin } from 'lucide-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
 
 const Footer = () => {
   return (
@@ -12,7 +20,8 @@ const Footer = () => {
               <span className="text-opal">OPAL</span> MARKETING
             </h3>
             <p className="text-opal-gray dark:text-gray-400 mb-6">
-              Islamabad's most trusted Real Estate Company with more than 18 years of experience in the industry.
+              Islamabad's most trusted Real Estate Company with more than 18
+              years of experience in the industry.
             </p>
             <div className="flex space-x-4">
               <SocialIcon icon={<Facebook size={18} />} />
@@ -23,21 +32,27 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-display font-bold text-lg mb-4 text-opal-text dark:text-white">Quick Links</h3>
+            <h3 className="font-display font-bold text-lg mb-4 text-opal-text dark:text-white">
+              Quick Links
+            </h3>
             <ul className="space-y-2">
               <FooterLink to="/">Home</FooterLink>
               <FooterLink to="/sky-projects">Opal Projects</FooterLink>
-              <FooterLink to="/real-estate-project">Real Estate Projects</FooterLink>
+              <FooterLink to="/real-estate-project">
+                Real Estate Projects
+              </FooterLink>
               <FooterLink to="/about-us">About Us</FooterLink>
               <FooterLink to="/contact-us">Contact Us</FooterLink>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-display font-bold text-lg mb-4 text-opal-text dark:text-white">Popular Projects</h3>
+            <h3 className="font-display font-bold text-lg mb-4 text-opal-text dark:text-white">
+              Popular Projects
+            </h3>
             <ul className="space-y-2">
               <FooterLink to="/sky-projects">Opal One</FooterLink>
-              <FooterLink to="/sky-projects">Alam One</FooterLink>
+              <FooterLink to="/sky-projects">Faisal Hills</FooterLink>
               <FooterLink to="/sky-projects">Blue World City</FooterLink>
               <FooterLink to="/sky-projects">Capital Smart City</FooterLink>
               <FooterLink to="/sky-projects">Park View City</FooterLink>
@@ -45,19 +60,27 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-display font-bold text-lg mb-4 text-opal-text dark:text-white">Contact Information</h3>
+            <h3 className="font-display font-bold text-lg mb-4 text-opal-text dark:text-white">
+              Contact Information
+            </h3>
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Phone className="w-5 h-5 text-opal mt-1 mr-3" />
-                <span className="text-opal-gray dark:text-gray-400">0333 1518966</span>
+                <span className="text-opal-gray dark:text-gray-400">
+                  0333 1518966
+                </span>
               </li>
               <li className="flex items-start">
                 <Mail className="w-5 h-5 text-opal mt-1 mr-3" />
-                <span className="text-opal-gray dark:text-gray-400">info@opalmarketing.com</span>
+                <span className="text-opal-gray dark:text-gray-400">
+                  info@opalmarketing.com
+                </span>
               </li>
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 text-opal mt-1 mr-3" />
-                <span className="text-opal-gray dark:text-gray-400">Office 10, 2nd Floor, Magna Plaza, Islamabad, Pakistan</span>
+                <span className="text-opal-gray dark:text-gray-400">
+                  Office 10, 2nd Floor, Magna Plaza, Islamabad, Pakistan
+                </span>
               </li>
             </ul>
           </div>
@@ -65,7 +88,8 @@ const Footer = () => {
 
         <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center">
           <p className="text-opal-gray dark:text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Opal Marketing. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Opal Marketing. All Rights
+            Reserved.
           </p>
         </div>
       </div>
@@ -74,18 +98,24 @@ const Footer = () => {
 };
 
 const SocialIcon = ({ icon }: { icon: React.ReactNode }) => (
-  <a 
-    href="#" 
+  <a
+    href="#"
     className="bg-white dark:bg-gray-800 p-2 rounded-full text-opal-gray dark:text-gray-400 hover:text-opal hover:bg-opal-light/10 transition-colors"
   >
     {icon}
   </a>
 );
 
-const FooterLink = ({ to, children }: { to: string, children: React.ReactNode }) => (
+const FooterLink = ({
+  to,
+  children,
+}: {
+  to: string;
+  children: React.ReactNode;
+}) => (
   <li>
-    <Link 
-      to={to} 
+    <Link
+      to={to}
       className="text-opal-gray dark:text-gray-400 hover:text-opal transition-colors"
     >
       {children}
