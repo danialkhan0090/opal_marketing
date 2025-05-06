@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Menu, X, Sun, Moon } from "lucide-react";
+import { text } from "stream/consumers";
 
 const Header = () => {
   const location = useLocation();
@@ -53,7 +54,7 @@ const Header = () => {
             <Link to="/" className="flex items-center">
               <div className="relative">
                 <span className="text-2xl font-display font-bold">
-                  <span className="text-[#FFA500]">OPAL</span>{" "}
+                  <span className="text-[#00008B]">OPAL</span>{" "}
                   <span
                     className={
                       scrolled || location.pathname !== "/"
@@ -64,7 +65,7 @@ const Header = () => {
                     MARKETING
                   </span>
                 </span>
-                <div className="absolute -top-4 right-0 w-full h-4 bg-[#FFA500] rounded-t-full opacity-30"></div>
+                {/* <div className="absolute -top-4 right-0 w-full h-4 bg-[#FFA500] rounded-t-full opacity-30"></div> */}
               </div>
             </Link>
           </div>

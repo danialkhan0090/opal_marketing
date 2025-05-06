@@ -18,7 +18,7 @@ const Index = () => {
       <section
         className="relative h-[90vh] bg-cover bg-center"
         style={{
-          backgroundImage: `url('public/lovable-uploads/d7b32d20-d5ce-4751-a9d4-000826607440.png')`,
+          backgroundImage: `url('/lovable-uploads/real-estate.jpg')`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30"></div>
@@ -227,7 +227,8 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gray-100">
+
+      {/* <section className="py-16 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -277,7 +278,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials Section */}
       <section className="py-16 bg-white">
@@ -291,7 +292,7 @@ const Index = () => {
             Here, you can check out the latest testimonials from our esteemed
             clients.
           </p>
-
+          {/* 
           <div className="relative">
             <img
               src="public/lovable-uploads/6896dcb0-ed40-4aef-bec8-80bb0c296edf.png"
@@ -303,7 +304,7 @@ const Index = () => {
                 <Play className="text-[#FFA500]" size={36} />
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 

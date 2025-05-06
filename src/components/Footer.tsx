@@ -20,8 +20,8 @@ const Footer = () => {
               <span className="text-opal">OPAL</span> MARKETING
             </h3>
             <p className="text-opal-gray dark:text-gray-400 mb-6">
-              Islamabad's most trusted Real Estate Company with more than 18
-              years of experience in the industry.
+              A trusted Real Estate Company with more than one decade of
+              services in the Pakistan.
             </p>
             <div className="flex space-x-4">
               <SocialIcon icon={<Facebook size={18} />} />
@@ -51,11 +51,19 @@ const Footer = () => {
               Popular Projects
             </h3>
             <ul className="space-y-2">
-              <FooterLink to="/sky-projects">Opal One</FooterLink>
-              <FooterLink to="/sky-projects">Faisal Hills</FooterLink>
-              <FooterLink to="/sky-projects">Blue World City</FooterLink>
-              <FooterLink to="/sky-projects">Capital Smart City</FooterLink>
-              <FooterLink to="/sky-projects">Park View City</FooterLink>
+              <FooterLink to="/Opal-projects">Faisal Hills</FooterLink>
+              <FooterLink to="/Opal-projects">Blue World City</FooterLink>
+              <FooterLink to="/Opal-projects">Capital Smart City</FooterLink>
+              <FooterLink to="/Opal-projects">Park View City</FooterLink>
+              <FooterLink to="/Opal-projects">Faisal Town Phase-II</FooterLink>
+              <FooterLink to="/Opal-projects">
+                CDA Sector B-17 Islamabad
+              </FooterLink>
+              <FooterLink to="/Opal-projects">New City Paradise </FooterLink>
+              <FooterLink to="/Opal-projects">
+                Bahria Enclave Phase-II Bahria hills,Islamabad
+              </FooterLink>
+              <FooterLink to="/Opal-projects">Top City-I ,Islambad</FooterLink>
             </ul>
           </div>
 
@@ -67,7 +75,7 @@ const Footer = () => {
               <li className="flex items-start">
                 <Phone className="w-5 h-5 text-opal mt-1 mr-3" />
                 <span className="text-opal-gray dark:text-gray-400">
-                  0333 1518966
+                  +92 3003353395
                 </span>
               </li>
               <li className="flex items-start">
@@ -79,7 +87,7 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 text-opal mt-1 mr-3" />
                 <span className="text-opal-gray dark:text-gray-400">
-                  Office 10, 2nd Floor, Magna Plaza, Islamabad, Pakistan
+                  Neelam road G-9 Markaz, Islamabad, Pakistan
                 </span>
               </li>
             </ul>

@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import { MessageCircle, X, Send, Phone } from 'lucide-react';
+import React, { useState } from "react";
+import { MessageCircle, X, Send, Phone } from "lucide-react";
+
+// Add WhatsApp number constant (with Pakistan country code)
+const WHATSAPP_NUMBER = "923003353395"; // 92 is Pakistan's country code
 
 const WhatsAppChat = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [unreadCount, setUnreadCount] = useState(2);
 
   const toggleChat = () => {
@@ -16,9 +19,11 @@ const WhatsAppChat = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (message.trim()) {
-      // In a real app, this would send the message to WhatsApp
-      console.log("Message to send:", message);
-      setMessage('');
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+        message
+      )}`;
+      window.open(whatsappUrl, "_blank");
+      setMessage("");
     }
   };
 
@@ -31,23 +36,27 @@ const WhatsAppChat = () => {
               <MessageCircle size={20} />
               <span className="font-medium">Chat via WhatsApp</span>
             </div>
-            <button 
-              onClick={toggleChat} 
+            <button
+              onClick={toggleChat}
               className="text-white hover:text-opal-light transition-colors"
             >
               <X size={20} />
             </button>
           </div>
-          
+
           <div className="p-4 bg-opal-background dark:bg-gray-800 h-64 overflow-y-auto">
             <div className="mb-4 bg-opal-light/10 dark:bg-opal-dark/20 p-3 rounded-lg max-w-[80%]">
               <p className="text-sm text-opal-text dark:text-gray-200">
-                Hi, I'm Eisha Malik. If you need any assistance, feel free to chat with me or call me at 0333 1518966.
+                Welcome to opal Marketing. If you need any assistance, feel free
+                to contact with us.
               </p>
             </div>
           </div>
-          
-          <form onSubmit={handleSubmit} className="p-3 border-t border-gray-200 dark:border-gray-700">
+
+          <form
+            onSubmit={handleSubmit}
+            className="p-3 border-t border-gray-200 dark:border-gray-700"
+          >
             <div className="flex items-center gap-2">
               <input
                 type="text"
@@ -56,7 +65,7 @@ const WhatsAppChat = () => {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />
-              <button 
+              <button
                 type="submit"
                 className="bg-opal hover:bg-opal-dark text-white p-2 rounded-full transition-colors"
               >
@@ -66,7 +75,7 @@ const WhatsAppChat = () => {
           </form>
         </div>
       ) : (
-        <button 
+        <button
           onClick={toggleChat}
           className="bg-opal hover:bg-opal-dark text-white p-4 rounded-full shadow-lg relative flex items-center justify-center transition-all duration-300 hover:scale-110"
         >
