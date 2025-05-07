@@ -119,7 +119,7 @@ const Index = () => {
               viewport={{ once: true }}
             >
               <img
-                src="public/lovable-uploads/c17ab826-c3d4-4c1d-ad90-8f64dedf11fa.png"
+                src="public/lovable-uploads/chatOpal.png"
                 alt="Opal Marketing Office"
                 className="w-full h-auto rounded-2xl shadow-xl"
               />
