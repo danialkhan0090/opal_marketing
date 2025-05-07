@@ -40,7 +40,6 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-<<<<<<< HEAD
           {/* Logo */}
           <Link to="/" className="flex items-center group">
             <motion.div
@@ -62,28 +61,6 @@ const Header = () => {
                   }`}
                 >
                   MARKETING
-=======
-          <div>
-            <Link to="/" className="flex items-center">
-              <img
-                src="/logo.jpeg"
-                alt="Opal Marketing Logo"
-                className="h-10 w-auto mr-3"
-                style={{ maxHeight: '40px' }}
-              />
-              <div className="relative">
-                <span className="text-2xl font-display font-bold">
-                  <span className="text-[#00008B]">OPAL</span>{" "}
-                  <span
-                    className={
-                      scrolled || location.pathname !== "/"
-                        ? "text-gray-900 dark:text-white"
-                        : "text-white"
-                    }
-                  >
-                    MARKETING
-                  </span>
->>>>>>> 04410615a9deec60cb624527805bb82d5985277a
                 </span>
               </span>
             </motion.div>

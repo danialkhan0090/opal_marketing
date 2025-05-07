@@ -22,7 +22,7 @@ const Index = () => {
           backgroundImage: `url('/lovable-uploads/real-estate.jpg')`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30"></div>
 
         {/* Hero Content */}
         <div className="absolute inset-0 flex items-center">
@@ -48,7 +48,7 @@ const Index = () => {
                   variant="outline"
                   className="border-white text-white hover:bg-white/10 px-8 py-6 rounded-lg transition-all duration-300"
                 >
-                  <span className="text-black">Contact Us</span>
+                  <span className="text-white">Contact Us</span>
                 </Button>
               </div>
             </motion.div>
@@ -321,7 +321,7 @@ const Index = () => {
             Here, you can check out the latest testimonials from our esteemed
             clients.
           </p>
-          {/* 
+
           <div className="relative">
             <img
               src="public/lovable-uploads/6896dcb0-ed40-4aef-bec8-80bb0c296edf.png"
@@ -333,7 +333,7 @@ const Index = () => {
                 <Play className="text-[#10B981]" size={36} />
               </button>
             </div>
-          </div> */}
+          </div>
         </div>
       </section>
 
