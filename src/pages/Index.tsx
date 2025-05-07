@@ -46,7 +46,7 @@ const Index = () => {
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 px-8 py-6 rounded-lg transition-all duration-300"
+                  className="bg-[#10B981] hover:bg-[#059669] text-white px-8 py-6 rounded-lg transition-all duration-300 transform hover:scale-105 border-none hover:opacity-70"
                 >
                   <span className="text-white">Contact Us</span>
                 </Button>
@@ -263,7 +263,7 @@ const Index = () => {
                 viewport={{ once: true }}
               >
                 <StatsCard
-                  number="100,000+"
+                  number="1000+"
                   title="SQFT UNDER DEVELOPMENT"
                   description="Changing the landscape with improved designs and innovative projects."
                 />
@@ -275,7 +275,7 @@ const Index = () => {
                 viewport={{ once: true }}
               >
                 <StatsCard
-                  number="20+"
+                  number="8+"
                   title="YEARS OF TRUST"
                   description="Trusted for delivering every project within the promised deadline."
                 />
@@ -287,7 +287,7 @@ const Index = () => {
                 viewport={{ once: true }}
               >
                 <StatsCard
-                  number="50+"
+                  number="11+"
                   title="AWARDS WON"
                   description="A recognition of excellence and success in real estate sector."
                 />
@@ -299,7 +299,7 @@ const Index = () => {
                 viewport={{ once: true }}
               >
                 <StatsCard
-                  number="1000+"
+                  number="500+"
                   title="HAPPY CLIENTS"
                   description="Building trust and delivering excellence to our valued clients."
                 />
