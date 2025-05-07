@@ -99,6 +99,21 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Opal Marketing. All Rights
             Reserved.
           </p>
+          <p className="text-opal-gray dark:text-gray-400 text-sm">
+            Designed by{" "}
+            <a
+              href="https://www.britishbytes.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-opal hover:text-opal-light transition-colors"
+            >
+
+              <b>British Bytes</b> 🇬🇧
+             
+
+            </a>
+            ,{" "}
+            </p>
         </div>
       </div>
     </footer>
