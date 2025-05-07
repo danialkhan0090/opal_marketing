@@ -323,11 +323,11 @@ const Index = () => {
           </p>
 
           <div className="relative">
-            <img
+            {/* <img
               src="public/lovable-uploads/6896dcb0-ed40-4aef-bec8-80bb0c296edf.png"
               alt="Client Testimonial"
               className="w-full h-80 object-cover rounded-md"
-            />
+            /> */}
             <div className="absolute inset-0 flex items-center justify-center">
               <button className="bg-white bg-opacity-80 rounded-full p-4 hover:bg-opacity-100 transition-all">
                 <Play className="text-[#10B981]" size={36} />
