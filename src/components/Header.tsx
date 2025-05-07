@@ -52,6 +52,12 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           <div>
             <Link to="/" className="flex items-center">
+              <img
+                src="/logo.jpeg"
+                alt="Opal Marketing Logo"
+                className="h-10 w-auto mr-3"
+                style={{ maxHeight: '40px' }}
+              />
               <div className="relative">
                 <span className="text-2xl font-display font-bold">
                   <span className="text-[#00008B]">OPAL</span>{" "}
