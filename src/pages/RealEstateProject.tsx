@@ -10,15 +10,15 @@ const RealEstateProject = () => {
   const societies = [
     {
       id: 1,
-      image: "/Images/3c436dfc-cb63-4de2-9694-70cc23a31e83.png",
-      title: "CAPITAL SMART CITY",
+      image: "/Images/bahria.jpg",
+      title: "Baharia Enclave",
       price: "1.2 Million",
       tags: ["Exclusive", "Premium", "Modern"],
       link: "/real-estate-project/capital-smart-city",
     },
     {
       id: 2,
-      image: "/Images/d7b32d20-d5ce-4751-a9d4-000826607440.png",
+      image: "/Images/bahria.jpg",
       title: "BLUE WORLD CITY",
       price: "0.5 Million",
       tags: ["Prime", "Accessible", "Scenic"],

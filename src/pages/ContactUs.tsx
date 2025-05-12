@@ -31,7 +31,7 @@ const ContactUs = () => {
             <ContactCard
               icon={<MapPin size={32} className="text-[#FFA500]" />}
               title="Our Location"
-              details={["Neelam road,Sector G-9 markaz, Islamabad", "Pakistan"]}
+              details={["Neelam road, Sector G-9 markaz, Islamabad, Pakistan"]}
             />
 
             <ContactCard

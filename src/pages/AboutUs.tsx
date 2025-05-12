@@ -3,8 +3,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppChat from "@/components/WhatsAppChat";
 import StatsCard from "@/components/StatsCard";
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 
 const AboutUs = () => {
@@ -16,7 +14,7 @@ const AboutUs = () => {
       <section
         className="relative h-[40vh] bg-cover bg-center"
         style={{
-          backgroundImage: `url('public/Images/c17ab826-c3d4-4c1d-ad90-8f64dedf11fa.png')`,
+          backgroundImage: `url('public/Images/aboutUs.png')`,
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -139,24 +137,24 @@ const AboutUs = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <StatsCard
-              number="100,000+"
-              title="SQFT UNDER DEVELOPMENT"
-              description="Changing the landscape with improved designs and innovative projects."
+              number="75,000+"
+              title="SQFT DELIVERED"
+              description="Crafting quality spaces that exceed expectations and inspire living."
             />
             <StatsCard
-              number="20+"
-              title="YEARS OF TRUST"
-              description="Trusted for delivering every project within the promised deadline."
+              number="15"
+              title="CITIES SERVED"
+              description="Expanding our footprint with successful projects across the nation."
             />
             <StatsCard
-              number="50+"
-              title="AWARDS WON"
-              description="A recognition of excellence and success in real estate sector."
+              number="100+"
+              title="PROJECTS COMPLETED"
+              description="Proven expertise with a portfolio of diverse real estate developments."
             />
             <StatsCard
-              number="50,000+"
-              title="REGISTERED CUSTOMERS"
-              description="Adding value to the community with an improved lifestyle."
+              number="18,500+"
+              title="SATISFIED CLIENTS"
+              description="Building trust and long-term relationships through every transaction."
             />
           </div>
         </div>
@@ -170,38 +168,58 @@ const AboutUs = () => {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white shadow-md overflow-hidden">
-              <div className="h-64 bg-gray-300"></div>
+            {/* CEO Card */}
+            <div className="bg-white shadow-md overflow-hidden rounded-lg">
+              <div className="h-96 bg-gray-300">
+                <img
+                  src="/Images/wajahat.jpg"
+                  alt="Mr. Wajahat Amin Khan - CEO"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
               <div className="p-6 text-center">
-                <h3 className="text-xl font-bold mb-1">Muhammad Ali</h3>
+                <h3 className="text-xl font-bold mb-1">Mr.Wajahat Amin Khan</h3>
                 <p className="text-gray-600 mb-4">Chief Executive Officer</p>
                 <p className="text-gray-700">
-                  With over 20 years in real estate, Muhammad leads our company
-                  with expertise and vision.
+                  Bringing more than 11 years of real estate experience, Wajahat
+                  guides our company with insight and strong leadership.
                 </p>
               </div>
             </div>
 
-            <div className="bg-white shadow-md overflow-hidden">
-              <div className="h-64 bg-gray-300"></div>
+            {/* Director Marketing Card */}
+            <div className="bg-white shadow-md overflow-hidden rounded-lg">
+              <div className="h-96 relative overflow-hidden">
+                <img
+                  src="/Images/hafiz.jpg"
+                  alt="Sayed Hefeez Ur Rehman - Director Marketing"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
               <div className="p-6 text-center">
-                <h3 className="text-xl font-bold mb-1">Sarah Khan</h3>
-                <p className="text-gray-600 mb-4">Marketing Director</p>
+                <h3 className="text-xl font-bold mb-1">
+                  Sayed Hefeez Ur Rehman
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Director Marketing and sales
+                </p>
                 <p className="text-gray-700">
-                  Sarah drives our innovative marketing strategies that set us
-                  apart in the industry.
+                  Leading the development of cutting-edge marketing strategies
+                  that distinguish us within the industry.
                 </p>
               </div>
             </div>
 
-            <div className="bg-white shadow-md overflow-hidden">
-              <div className="h-64 bg-gray-300"></div>
+            {/* Operations Manager Card */}
+            <div className="bg-white shadow-md overflow-hidden rounded-lg">
+              <div className="h-96 bg-gray-300"></div>
               <div className="p-6 text-center">
-                <h3 className="text-xl font-bold mb-1">Umar Farooq</h3>
-                <p className="text-gray-600 mb-4">Operations Manager</p>
+                <h3 className="text-xl font-bold mb-1">Eng.Shahzaib Khan</h3>
+                <p className="text-gray-600 mb-4">Manager Operations</p>
                 <p className="text-gray-700">
-                  Umar ensures all our projects run smoothly and are delivered
-                  on time with quality.
+                  Our Operations Manager oversees every project to ensure
+                  efficient execution, timely delivery, and the highest
+                  standards of quality throughout.
                 </p>
               </div>
             </div>
@@ -210,33 +228,6 @@ const AboutUs = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-[#1A365D]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">
-            READY TO FIND YOUR NEXT PROPERTY?
-          </h2>
-          <p className="text-gray-200 mb-8 max-w-3xl mx-auto">
-            Let our experts help you find the perfect property that meets all
-            your requirements. Contact us today for a consultation.
-          </p>
-
-          <div className="flex justify-center gap-4 flex-wrap">
-            <Link to="/contact-us">
-              <Button className="bg-[#FFA500] hover:bg-[#FF8C00] text-white px-8 py-5 rounded-none">
-                CONTACT US NOW
-              </Button>
-            </Link>
-            <Link to="/sky-projects">
-              <Button
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-[#1A365D] px-8 py-5 rounded-none"
-              >
-                EXPLORE OUR PROJECTS
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
 
       <Footer />
       <WhatsAppChat />
