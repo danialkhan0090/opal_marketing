@@ -8,7 +8,7 @@ interface ProjectCardProps {
   title: string;
   price: string;
   tags: string[];
-  link: string;
+  link?: string;
   location?: string;
   beds?: number;
   baths?: number;
@@ -19,7 +19,7 @@ const ProjectCard = ({
   title,
   price,
   tags,
-  link,
+  link = "#",
   location = "Islamabad",
   beds = 3,
   baths = 2,

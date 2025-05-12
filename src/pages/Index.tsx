@@ -1,15 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Play, Search, MapPin, Bed, Bath, ArrowRight } from "lucide-react";
+import {
+  Play,
+  Search,
+  MapPin,
+  Bed,
+  Bath,
+  ArrowRight,
+  ChevronDown,
+} from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppChat from "@/components/WhatsAppChat";
 import ProjectCard from "@/components/ProjectCard";
 import StatsCard from "@/components/StatsCard";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Index = () => {
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 100) {
+        setIsSearchVisible(true);
+      } else {
+        setIsSearchVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -40,14 +64,14 @@ const Index = () => {
               <p className="text-xl text-white/90 mb-8">
                 Discover exclusive properties in prime locations across Pakistan
               </p>
-              <div className="flex gap-4">
-                <Button className="bg-[#10B981] hover:bg-[#059669] text-white px-8 py-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button className="bg-[#10B981] hover:bg-[#059669] text-white px-8 py-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                   <span className="text-white">Explore Properties</span>
                   <ArrowRight className="ml-2 text-white" size={20} />
                 </Button>
                 <Button
                   variant="outline"
-                  className="bg-[#10B981] hover:bg-[#059669] text-white px-8 py-6 rounded-lg transition-all duration-300 transform hover:scale-105 border-none hover:opacity-70"
+                  className="bg-transparent hover:bg-white/10 text-white px-8 py-6 rounded-lg transition-all duration-300 transform hover:scale-105 border-2 border-white hover:border-white/70"
                 >
                   <span className="text-white">Contact Us</span>
                 </Button>
@@ -56,57 +80,22 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Property Search Overlay */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="absolute bottom-0 left-0 right-0 transform translate-y-1/2"
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-8 backdrop-blur-sm bg-opacity-95">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Search by location"
-                    className="w-full pl-12 pr-4 py-4 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#10B981] transition-all duration-300"
-                  />
-                  <MapPin
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
-                    size={20}
-                  />
-                </div>
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Property type"
-                    className="w-full pl-12 pr-4 py-4 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#10B981] transition-all duration-300"
-                  />
-                  <Bed
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
-                    size={20}
-                  />
-                </div>
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Price range"
-                    className="w-full pl-12 pr-4 py-4 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#10B981] transition-all duration-300"
-                  />
-                  <Bath
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
-                    size={20}
-                  />
-                </div>
-                <Button className="bg-[#10B981] hover:bg-[#059669] text-white py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
-                  <Search className="mr-2 text-white" size={20} />
-                  <span className="text-white">Search Properties</span>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </motion.div> */}
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+            <ChevronDown className="text-white w-8 h-8" />
+          </motion.div>
+        </motion.div>
+
+        {/* Property Search Overlay */}
       </section>
 
       {/* Welcome Section */}
@@ -118,12 +107,14 @@ const Index = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="relative group"
             >
               <img
                 src="/Images/chatOpal.png"
                 alt="Opal Marketing Office"
-                className="w-full h-auto rounded-2xl shadow-xl"
+                className="w-full h-auto rounded-2xl shadow-xl transition-transform duration-500 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -153,7 +144,7 @@ const Index = () => {
               </p>
               <div className="text-center md:text-left">
                 <Link to="/about-us">
-                  <Button className="bg-black hover:bg-gray-800 text-white px-8 py-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+                  <Button className="bg-black hover:bg-gray-800 text-white px-8 py-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                     <span className="text-white">GET TO KNOW US</span>
                     <ArrowRight className="ml-2 text-white" size={20} />
                   </Button>
@@ -183,45 +174,36 @@ const Index = () => {
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <ProjectCard
-                image="/Images/FH-gate.png"
-                title="Faisal hills"
-                price="0.7 Million"
-                tags={["Accessible", "Opulent", "Fascinating"]}
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <ProjectCard
-                image="/Images/park-3.jpg.webp"
-                title="Park View City"
-                price="0.8 Million"
-                tags={["Prime", "Luxurious", "Scenic"]}
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <ProjectCard
-                image="/Images/FT-01.png.jpg"
-                title="Faisal Town"
-                price="1 Million"
-                tags={["Innovative", "Developed", "Elite"]}
-              />
-            </motion.div>
+            {[
+              {
+                image: "/Images/FH-gate.png",
+                title: "Faisal hills",
+                price: "0.7 Million",
+                tags: ["Accessible", "Opulent", "Fascinating"],
+              },
+              {
+                image: "/Images/park-3.jpg.webp",
+                title: "Park View City",
+                price: "0.8 Million",
+                tags: ["Prime", "Luxurious", "Scenic"],
+              },
+              {
+                image: "/Images/FT-01.png.jpg",
+                title: "Faisal Town",
+                price: "1 Million",
+                tags: ["Innovative", "Developed", "Elite"],
+              },
+            ].map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <ProjectCard {...project} />
+              </motion.div>
+            ))}
           </div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -231,7 +213,7 @@ const Index = () => {
             className="text-center mt-16"
           >
             <Link to="/Opal-Projects">
-              <Button className="bg-black hover:bg-gray-800 text-white px-8 py-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+              <Button className="bg-black hover:bg-gray-800 text-white px-8 py-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                 <span className="text-white">VIEW ALL PROJECTS</span>
                 <ArrowRight className="ml-2 text-white" size={20} />
               </Button>
@@ -241,40 +223,47 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-[#1A365D] mb-4">
+              OUR ACHIEVEMENTS
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Building trust and delivering excellence through our years of
+              experience
+            </p>
+          </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               {
                 number: "1000+",
                 title: "SQFT UNDER DEVELOPMENT",
-                description:
-                  "Changing the landscape with improved designs and innovative projects.",
-              },
-              {
-                number: "8+",
-                title: "YEARS OF TRUST",
-                description:
-                  "Trusted for delivering every project within the promised deadline.",
-              },
-              {
-                number: "11+",
-                title: "AWARDS WON",
-                description:
-                  "A recognition of excellence and success in real estate sector.",
               },
               {
                 number: "500+",
                 title: "HAPPY CLIENTS",
-                description:
-                  "Building trust and delivering excellence to our valued clients.",
+              },
+              {
+                number: "18+",
+                title: "YEARS EXPERIENCE",
+              },
+              {
+                number: "50+",
+                title: "PROJECTS COMPLETED",
               },
             ].map((stat, index) => (
               <motion.div
                 key={stat.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
                 <StatsCard {...stat} />
@@ -284,34 +273,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1A365D] mb-6">
-            HEAR IT FROM OUR CLIENTS!
-          </h2>
-          <p className="text-gray-700 mb-12 max-w-3xl mx-auto">
-            Our clients are our greatest asset, and they speak for themselves.
-            Here, you can check out the latest testimonials from our esteemed
-            clients.
-          </p>
-          <div className="relative">
-            {/* <img
-              src="public/lovable-uploads/6896dcb0-ed40-4aef-bec8-80bb0c296edf.png"
-              alt="Client Testimonial"
-              className="w-full h-80 object-cover rounded-md"
-            /> */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <button className="bg-white bg-opacity-80 rounded-full p-4 hover:bg-opacity-100 transition-all">
-                <Play className="text-[#10B981]" size={36} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <WhatsAppChat />
       <Footer />
+      <WhatsAppChat />
     </div>
   );
 };
