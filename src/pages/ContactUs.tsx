@@ -14,7 +14,7 @@ const ContactUs = () => {
       <section
         className="relative h-[40vh] bg-cover bg-center"
         style={{
-          backgroundImage: `url('public/lovable-uploads/2566a012-93d1-4bb5-a03d-6471a47986f9.png')`,
+          backgroundImage: `url('public/Images/aboutUs.png')`,
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -83,27 +83,7 @@ const ContactUs = () => {
       </section>
 
       {/* Office Images */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-[#1A365D] mb-12 text-center">
-            OUR OFFICES
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="h-64 bg-gray-300 flex items-center justify-center">
-              <p className="text-gray-600">Islamabad Office</p>
-            </div>
-
-            <div className="h-64 bg-gray-300 flex items-center justify-center">
-              <p className="text-gray-600">Lahore Office</p>
-            </div>
-
-            <div className="h-64 bg-gray-300 flex items-center justify-center">
-              <p className="text-gray-600">Karachi Office</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="py-16 bg-white"></section>
 
       <Footer />
       <WhatsAppChat />

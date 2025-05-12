@@ -16,7 +16,7 @@ const AboutUs = () => {
       <section
         className="relative h-[40vh] bg-cover bg-center"
         style={{
-          backgroundImage: `url('public/lovable-uploads/c17ab826-c3d4-4c1d-ad90-8f64dedf11fa.png')`,
+          backgroundImage: `url('public/Images/c17ab826-c3d4-4c1d-ad90-8f64dedf11fa.png')`,
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -68,7 +68,7 @@ const AboutUs = () => {
 
             <div>
               <img
-                src="public/lovable-uploads/real.png"
+                src="public/Images/real.png"
                 alt="Opal Marketing Office"
                 className="w-full h-auto rounded-md shadow-lg"
               />

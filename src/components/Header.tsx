@@ -47,7 +47,7 @@ const Header = () => {
               className="relative flex items-center gap-2"
             >
               <img
-                src="/lovable-uploads/opal2.png"
+                src="/Images/opal2.png"
                 alt="Opal Marketing Logo"
                 className="h-12 w-auto object-contain transition-transform duration-300"
               />
@@ -113,8 +113,8 @@ const Header = () => {
               onMouseLeave={() => handleDropdownHover(null)}
             >
               <NavLink
-                to="/sky-projects"
-                active={location.pathname === "/sky-projects"}
+                to="/Opal-Projects"
+                active={location.pathname === "/Opal-Projects"}
                 scrolled={scrolled}
                 hasDropdown
               >
@@ -131,13 +131,13 @@ const Header = () => {
                     transition={{ duration: 0.2 }}
                     className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-xl py-2"
                   >
-                    <DropdownLink to="/sky-projects/residential">
+                    <DropdownLink to="/Opal-Projects/residential">
                       Residential
                     </DropdownLink>
-                    <DropdownLink to="/sky-projects/commercial">
+                    <DropdownLink to="/Opal-Projects/commercial">
                       Commercial
                     </DropdownLink>
-                    <DropdownLink to="/sky-projects/luxury">
+                    <DropdownLink to="/Opal-Projects/luxury">
                       Luxury
                     </DropdownLink>
                   </motion.div>
@@ -247,8 +247,8 @@ const Header = () => {
                 HOME
               </MobileNavLink>
               <MobileNavLink
-                to="/sky-projects"
-                active={location.pathname === "/sky-projects"}
+                to="/Opal-Projects"
+                active={location.pathname === "/Opal-Projects"}
                 onClick={toggleMobileMenu}
               >
                 PROPERTIES
