@@ -58,33 +58,6 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* Map and Form Section */}
-      <section className="py-16 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="h-[500px] bg-gray-300 flex items-center justify-center">
-              <p className="text-gray-600">Google Map will be displayed here</p>
-            </div>
-
-            <div className="bg-white p-8 shadow-md">
-              <h2 className="text-3xl font-bold text-[#1A365D] mb-6 text-center">
-                GET IN TOUCH WITH US
-              </h2>
-
-              <p className="text-gray-700 mb-8 text-center">
-                Fill out the form below, and one of our representatives will
-                contact you shortly.
-              </p>
-
-              <ContactForm />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Office Images */}
-      <section className="py-16 bg-white"></section>
-
       <Footer />
       <WhatsAppChat />
     </div>
