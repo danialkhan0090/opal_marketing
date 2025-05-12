@@ -223,7 +223,7 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -232,14 +232,27 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1A365D] mb-4">
+            <motion.h2
+              className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#1A365D] to-[#10B981] bg-clip-text text-transparent mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
               OUR ACHIEVEMENTS
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.p
+              className="text-gray-600 text-lg max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
               Building trust and delivering excellence through our years of
               experience
-            </p>
+            </motion.p>
           </motion.div>
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               {
@@ -263,7 +276,12 @@ const Index = () => {
                 key={stat.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 100,
+                }}
                 viewport={{ once: true }}
               >
                 <StatsCard {...stat} />
