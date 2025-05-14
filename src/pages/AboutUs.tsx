@@ -178,7 +178,7 @@ const AboutUs = () => {
                 />
               </div>
               <div className="p-6 text-center">
-                <h3 className="text-xl font-bold mb-1">Mr.Wajahat Amin Khan</h3>
+                <h3 className="text-xl font-bold mb-1">Engr.Wajahat Khan</h3>
                 <p className="text-gray-600 mb-4">Chief Executive Officer</p>
                 <p className="text-gray-700">
                   Bringing more than 11 years of real estate experience, Wajahat
