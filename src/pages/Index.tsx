@@ -256,19 +256,19 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               {
-                number: "1000+",
+                number: "1500+",
                 title: "SQFT UNDER DEVELOPMENT",
               },
               {
-                number: "500+",
+                number: "2500+",
                 title: "HAPPY CLIENTS",
               },
               {
-                number: "18+",
+                number: "10+",
                 title: "YEARS EXPERIENCE",
               },
               {
-                number: "50+",
+                number: "60+",
                 title: "PROJECTS COMPLETED",
               },
             ].map((stat, index) => (
