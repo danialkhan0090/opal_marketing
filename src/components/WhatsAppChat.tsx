@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MessageCircle, X, Send, Phone } from "lucide-react";
 
 // Constants
-const WHATSAPP_NUMBER = "923003353395";
+const WHATSAPP_NUMBER = "03369738190";
 const INITIAL_MESSAGE =
   "Welcome to Opal Marketing. How can we assist you today?";
 
